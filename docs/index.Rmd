@@ -1,7 +1,7 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
-date: '2022-11-01'
+title: "Study of American Peison System"
+author: "Jiajia Lin"
+date: '2022-11-21'
 output: html_document
 ---
 
@@ -11,35 +11,91 @@ source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
 
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
-
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
+This research is about the prison system in the United States. Data shows people of power might be unequally treated which leads to disproportionate incarceration caused by biased social and political structures. This research studies the jail population of color in different regions and creates visualizations that show the inequality of the jail system.
 
 ## Introduction 
-[TODO]
+
+> ***-	Social issue***
+
+>>The dataset of this research reveals plenty of social issues. In certain regions, like the southern area of the United States, there is a disproportionate distribution shown in the jail population of people of color, which might suggest that people of color are unfairly treated by the prison system. Also, the unbalanced population also indicates a social issue that compared to white communities and people with high social status, minority communities have relatively fewer opportunities of receiving higher education and achieving in careers.
+
+>***-	Stakeholders and values ***
+
+>>The direct stakeholders of this research are people like researchers and article writers, who would like to use the data visualizations created in this research. The indirect stakeholders are people who suffer from the biased prison system. Also, policymakers might also be more aware of the current imperfect policies and improve the prison system in the United States. The value this study engaged in is safety. Because improving the prison system would protect both citizens’ mental and physical health.
+
+>***-	Question answered***
+
+>>This research provides answers to the growth of the U.S. prison population, the growth of prison population by state, the jail population in the South by race, and how potential patterns of inequality distribute geographically.
 
 ## Data Summary 
-[TODO]
+```{r echo=TRUE}
+summary_info
+```
 
-[TODO ... other sections ... See Canvas for details]
+#### Variables
 
-_All the very best with your work!_
+*The average number of black jail population in the northeast.(N_ave_black_pop)*
+
+*The average number of white jail population in the northeast.(N_ave_white_pop)*
+
+*The average number of black jail population in the south.(S_ave_black_pop)*
+
+*The average number of white jail population in the south.(S_ave_white_pop)*
+
+
+#### Summary 
+
+For the summary information, I calculated four variables of the average jail population by race and region. The year range of these data is from 1985 to 2018 because there is a blank in the dataset before 1985. All the values are rounded to one decimal place.
+
+A pattern of inequality in the prison system is shown by selecting these four variables. The data shows that whether in the northeast region or the southern region of the U.S., the average black jail population is higher than the white jail population.
+
+## Growth of Prison Population by State
+```{r echo=TRUE}
+plot_jail_pop_for_us()
+```
+
+#### Summary 
+
+In this chart, we can see that the jail population was progressively increasing after the year 1978. The jail population reached its peak in the year 2008. After the year 2008, the total jail population started to show a slight fluctuation in number till the year 2018.
+
+-- Question: What caused the jail population to keep increasing from 1980 to 2008 and stay comparably stable after then?
+
+## Growth of Prison Population by State
+
+```{r}
+plot_jail_pop_by_states(c("CA", "WA", "NY"))
+```
+
+#### Summary 
+
+The chart above shows the growth of the prison population of data in California, Washington, and New York from 1970 to 2018. I choose these three states because they are states with a high population density. The graph shows that California has the highest prison population while Washington is the lowest. 
+
+> Question: Why does the prison population in California and New York raises rapidly after 1978?
+
+## White Jail Population and Black Jail Population in South of the U.S.
+
+```{r echo=TRUE}
+plot_jail_pop_by_race()
+```
+
+#### Summary 
+
+This line chart shows that between 1989 to 2012, the black jail population is always higher than the white jail population in the southern region of the U.S. The black jail population reaches its peak in the year 2008.
+
+> Question: What does the white jail population start to become higher than the black jail population?
+
+>>The year 2012, the white jail population started to exceed the black jail population.
+
+## Distribution of the black jail population
+
+```{r echo=TRUE}
+plot_black_jail_pop()
+```
+
+
+#### Summary
+This map visualization shows the distribution of the black jail population in each state. I deleted the states with NA values because they do not have data on the black jail population. This visualization shows that states with high black jail populations are from the south, southwest, and southeast region of America. 
+
+-- Question: What might be the cause of the low black jail population in the middle area of the U.S? 
 
